@@ -1,0 +1,27 @@
+services:
+  fake-smtp-server:
+    image: reachfive/fake-smtp-server
+    ports:
+      - 1025:1025
+      - 1080:1080
+  mysql:
+    image: mysql:8.0
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=senior_dev_test
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      timeout: 20s
+      retries: 10
+  backend:
+    build: ./backend
+    ports:
+      - 8084:8084
+    environment:
+      - MYSQL_HOST=mysql
+      - SMTP_HOST=fake-smtp-server
+    depends_on:
+      mysql:
+        condition: service_healthy
