@@ -3,12 +3,12 @@ Docker Compose v2.12 or later\
 Docker Desktop v4.14 or later
 
 # Scope
-This only covers the backend of the exam, and user need to play the application using the API documentation.
+This only covers the backend of the exam, and the user is able  to play the application using the API documentation.
 
 # Intro
 This application was built using Java 17, Springboot 3, MySQL 8, and Docker to run everything in a single shell command.
 
-I was able to cover a part of the junit tests, but I created those critical part of the application, on my own opinion. 
+I was not able to fully cover junit tests, but I created those critical part (validations and controllers). 
 
 # Getting Started
 ## For Linux Systems
