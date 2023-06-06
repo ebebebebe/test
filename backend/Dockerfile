@@ -4,7 +4,7 @@ COPY .mvn .mvn
 COPY src src
 COPY mvnw mvnw
 COPY pom.xml pom.xml
-RUN ./mvnw install
+RUN ["./mvnw","install"]
 
 FROM eclipse-temurin:17-jdk-alpine
 VOLUME /tmp
